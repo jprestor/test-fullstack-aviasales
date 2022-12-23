@@ -1,6 +1,9 @@
-build/
-dist/
-node_modules/
-.snapshots/
+.git
+.eslintignore
+.gitignore
+build
+dist
+node_modules
+.snapshots
 *.min.js
 packages/**/coverage/
