@@ -22,6 +22,6 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-      - run: make setup
-      - run: make lint
-      - run: make test
+      # - run: make setup
+      # - run: make lint
+      # - run: make test

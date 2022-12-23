@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    color: #fff !important;
+    background: #fff !important;
+    font-size: 20px;
+    line-height: 160%;
+    font-family: 'Inter', sans-serif;
+  }
+
+  @layer components {
+    .text-gradient {
+      background: conic-gradient(
+        from 162.72deg at 44.88% 50%,
+        #2b65fb 0deg,
+        #28d8ff 148.13deg,
+        #85ffb6 307.63deg,
+        #17c213 360deg
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  }
+}
