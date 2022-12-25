@@ -15,10 +15,10 @@
   @layer components {
     .text-gradient {
       background: conic-gradient(
-        from 162.72deg at 44.88% 50%,
-        #2b65fb 0deg,
-        #28d8ff 148.13deg,
-        #85ffb6 307.63deg,
+        from 100deg at 44.88% 50%,
+        #2b65fb 140deg,
+        #28d8ff 165deg,
+        #85ffb6 335deg,
         #17c213 360deg
       );
       -webkit-background-clip: text;

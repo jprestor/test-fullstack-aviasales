@@ -24,7 +24,7 @@
       "@/helpers/*": ["*", "src/helpers/*"],
       "@/hoc/*": ["*", "src/hoc/*"],
       "@/hooks/*": ["*", "src/hooks/*"],
-      "@/ui/*": ["*", "src/components/ui"],
+      "@/ui/*": ["*", "src/components/ui/*"],
       "@/widgets": ["*", "src/components/widgets"],
       "@/forms": ["*", "src/components/forms"],
       "@/fields/*": ["*", "src/components/fields"],
