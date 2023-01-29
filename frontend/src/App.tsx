@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Button from '@/ui/button';
-import Frame from '@/ui/frame';
+import Form from '@/components/form';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -27,9 +26,7 @@ const App = () => {
           поделись с друзьями
         </p>
 
-        <div className="">
-          <Button disabled>Я оставил</Button>
-        </div>
+        <Form />
       </div>
     </div>
   );
