@@ -7,8 +7,8 @@
   body {
     color: #fff !important;
     background: #fff !important;
-    font-size: 20px;
-    line-height: 160%;
+    font-size: 18px;
+    line-height: normal;
     font-family: 'Inter', sans-serif;
   }
 
@@ -25,6 +25,39 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
+    }
+
+    .border-gradient {
+      border: 1px solid transparent;
+      background: linear-gradient(#030c29, #030c29) padding-box,
+        linear-gradient(
+            154.93deg,
+            rgba(255, 255, 255, 0.47) 12.78%,
+            rgba(255, 255, 255, 0) 87.86%
+          )
+          border-box;
+    }
+
+    .border-gradient-success {
+      border: 1px solid transparent;
+      background: linear-gradient(#030c29, #030c29) padding-box,
+        linear-gradient(
+            95.89deg,
+            rgba(98, 255, 130, 0.988235) 11.34%,
+            #29ba47 93.32%
+          )
+          border-box;
+    }
+
+    .border-gradient-success2 {
+      border: 1px solid transparent;
+      background: linear-gradient(#051237, #051237) padding-box,
+        linear-gradient(
+            95.89deg,
+            rgba(98, 255, 130, 0.988235) 11.34%,
+            #29ba47 93.32%
+          )
+          border-box;
     }
   }
 }

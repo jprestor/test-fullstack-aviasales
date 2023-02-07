@@ -18,16 +18,16 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["*", "src/*"],
-      "@/pages/*": ["*", "src/pages/*"],
+      "@/routes": ["*", "src/routes"],
       "@/store/*": ["*", "src/store/*"],
       "@/components/*": ["*", "src/components/*"],
       "@/helpers/*": ["*", "src/helpers/*"],
       "@/hoc/*": ["*", "src/hoc/*"],
       "@/hooks/*": ["*", "src/hooks/*"],
-      "@/ui/*": ["*", "src/components/ui/*"],
+      "@/ui": ["*", "src/components/ui"],
       "@/widgets": ["*", "src/components/widgets"],
       "@/forms": ["*", "src/components/forms"],
-      "@/fields/*": ["*", "src/components/fields"],
+      "@/field": ["*", "src/components/field"],
       "@/public/*": ["*", "./public"]
     }
   },
