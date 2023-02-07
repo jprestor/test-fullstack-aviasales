@@ -17,7 +17,7 @@ const Home = () => {
         поделись с друзьями
       </p>
 
-      <div className="grid grid-cols-2 gap-[24px] max-w-[584px]">
+      <div className="grid grid-cols-2 gap-[24px] max-w-[584px] sm:grid-cols-1">
         <FormContacts />
         <FormSocials />
       </div>
