@@ -2,24 +2,20 @@ import { redirect } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { isAxiosError } from 'axios';
+import api from '@/src/api';
 
 import { FieldSocialShare } from '@/field';
 import { Button, Form } from '@/ui';
-import { createUser } from '@/store/form/formSlice';
-import { useAppSelector, useAppDispatch } from '@/hooks';
+import { useAppSelector } from '@/hooks';
 
 interface IFormValues {
   shared: boolean;
 }
 
 const FormSocials = () => {
-  const dispatch = useAppDispatch();
-  const step = useAppSelector((state) => state.form.step);
+  const { step, email } = useAppSelector((state) => state.form);
 
   const {
-    register,
-    reset,
     setError,
     setValue,
     handleSubmit,
@@ -35,23 +31,15 @@ const FormSocials = () => {
     ),
   });
 
-  const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValues> = async () => {
     try {
-      await dispatch(createUser('qwerty'));
-      redirect('/');
+      await api.post('/user/create', { email });
+      redirect('/success');
     } catch (error) {
-      if (isAxiosError(error) && error.response) {
-        if (error.response.status === 409) {
-          // setError('email', {
-          //   type: 'exist',
-          //   message: 'Почта уже зарегистрирована',
-          // });
-        } else {
-          reset();
-        }
-      } else {
-        console.log('unexpected error: ', error);
-      }
+      console.log('unexpected error: ', error);
+      setError('root.serverError', {
+        message: 'Что-то пошло не так...',
+      });
     }
   };
 
@@ -98,10 +86,11 @@ const FormSocials = () => {
         </FieldSocialShare>
       </div>
 
-      {errors.shared && (
+      {(errors.shared || errors.root?.serverError) && (
         <div className="relative">
           <div className="absolute top-[10px] text-[9px] text-[#FC1E1F]">
-            {errors.shared.message}
+            {errors.shared?.message}
+            {errors.root?.serverError.message}
           </div>
         </div>
       )}

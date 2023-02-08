@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Button } from '@/ui';
 
-const Final = () => {
+const Success = () => {
   return (
     <>
       <h1 className="mb-[35px] text-[40px] text-white font-bold uppercase leading-[58px]">
@@ -22,4 +21,4 @@ const Final = () => {
   );
 };
 
-export default Final;
+export default Success;

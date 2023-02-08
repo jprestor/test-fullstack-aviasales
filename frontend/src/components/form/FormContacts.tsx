@@ -2,11 +2,12 @@ import cn from 'classnames';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import axios from 'axios';
+import { isAxiosError } from 'axios';
+import api from '@/src/api';
 
 import { FieldText } from '@/field';
 import { Button, Form } from '@/ui';
-import { checkUserExist, nextStep } from '@/store/form/formSlice';
+import { nextStep, setUserEmail } from '@/store/form/formSlice';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
 interface IFormValues {
@@ -39,18 +40,20 @@ const FormContacts = () => {
 
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
-      await dispatch(checkUserExist(data.email));
-      nextStep();
+      const res = await api.post('/user/check', data);
+      const isUserExist = res.data;
+      if (isUserExist) {
+        setError('email', {
+          type: 'exist',
+          message: 'Почта уже зарегистрирована',
+        });
+      } else {
+        dispatch(setUserEmail(data.email));
+        dispatch(nextStep());
+      }
     } catch (error) {
-      if (axios.isAxiosError(error) && error.response) {
-        if (error.response.status === 409) {
-          setError('email', {
-            type: 'exist',
-            message: 'Почта уже зарегистрирована',
-          });
-        } else {
-          reset();
-        }
+      if (isAxiosError(error)) {
+        reset();
       } else {
         console.log('unexpected error: ', error);
       }

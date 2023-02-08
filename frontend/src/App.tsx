@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from 'react-router-dom';
-import { Home, Final } from '@/routes';
+import { Home, Success } from '@/routes';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/final" element={<Final />} />
+          <Route path="/success" element={<Success />} />
         </Routes>
       </div>
     </div>
