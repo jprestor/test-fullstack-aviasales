@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import { redirect } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -6,12 +6,17 @@ import { isAxiosError } from 'axios';
 
 import { FieldSocialShare } from '@/field';
 import { Button, Form } from '@/ui';
+import { createUser } from '@/store/form/formSlice';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 interface IFormValues {
   shared: boolean;
 }
 
 const FormSocials = () => {
+  const dispatch = useAppDispatch();
+  const step = useAppSelector((state) => state.form.step);
+
   const {
     register,
     reset,
@@ -32,8 +37,8 @@ const FormSocials = () => {
 
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
-      console.log('data');
-      // await submitRequest({ ...data, pageUrl: asPath });
+      await dispatch(createUser());
+      redirect('/');
     } catch (error) {
       if (isAxiosError(error) && error.response) {
         if (error.response.status === 409) {
@@ -53,7 +58,12 @@ const FormSocials = () => {
   const onShareLinkClick = () => setValue('shared', true);
 
   return (
-    <Form title="Поделись с друзьями" num={2} onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      title="Поделись с друзьями"
+      num={2}
+      disabled={step !== 2}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="grid grid-cols-4 gap-[20px]">
         <FieldSocialShare
           className="shadow-[-10px_0_20px_rgba(0,58,218,.35),0_4px_5px_rgba(0,12,35,.5)]"

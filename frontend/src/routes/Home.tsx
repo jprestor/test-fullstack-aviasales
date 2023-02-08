@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import { FormContacts, FormSocials } from '@/components/form';
 
 const Home = () => {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <h1 className="mb-[35px] text-[40px] text-white font-bold uppercase leading-[58px]">

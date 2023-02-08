@@ -6,12 +6,17 @@ import axios from 'axios';
 
 import { FieldText } from '@/field';
 import { Button, Form } from '@/ui';
+import { checkUserExist, nextStep } from '@/store/form/formSlice';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 interface IFormValues {
   email: string;
 }
 
 const FormContacts = () => {
+  const dispatch = useAppDispatch();
+  const step = useAppSelector((state) => state.form.step);
+
   const {
     register,
     reset,
@@ -34,7 +39,8 @@ const FormContacts = () => {
 
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
-      // await submitRequest({ ...data, pageUrl: asPath });
+      await dispatch(checkUserExist(data.email));
+      nextStep();
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         if (error.response.status === 409) {
@@ -55,7 +61,7 @@ const FormContacts = () => {
     <Form
       title="Оставь актуальный email"
       num={1}
-      disabled={false}
+      disabled={step !== 1}
       onSubmit={handleSubmit(onSubmit)}
     >
       <FieldText name="email" placeholder="Ввести email" register={register} />
