@@ -37,7 +37,7 @@ const FormSocials = () => {
 
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
-      await dispatch(createUser());
+      await dispatch(createUser('qwerty'));
       redirect('/');
     } catch (error) {
       if (isAxiosError(error) && error.response) {
