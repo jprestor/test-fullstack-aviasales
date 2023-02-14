@@ -1,4 +1,5 @@
 import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -14,6 +15,7 @@ interface IFormValues {
 
 const FormSocials = () => {
   const { step, email } = useAppSelector((state) => state.form);
+  const navigate = useNavigate();
 
   const {
     setError,
@@ -34,7 +36,7 @@ const FormSocials = () => {
   const onSubmit: SubmitHandler<IFormValues> = async () => {
     try {
       await api.post('/users/create', { email });
-      redirect('/success');
+      navigate('/success');
     } catch (error) {
       console.log('unexpected error: ', error);
       setError('root.serverError', {

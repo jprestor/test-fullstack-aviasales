@@ -1,9 +1,7 @@
 # test-fullstack-aviasales
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/8e5facdafa7e669bfcc1/maintainability)](https://codeclimate.com/github/jprestor/test-fullstack-aviasales/maintainability)
-
 [![Backend CI Status](https://github.com/jprestor/test-fullstack-aviasales/actions/workflows/backend.yml/badge.svg)](https://github.com/jprestor/test-fullstack-aviasales/actions/workflows/backend.yml)
-
 [![Frontend CI Status](https://github.com/jprestor/test-fullstack-aviasales/actions/workflows/frontend.yml/badge.svg)](https://github.com/jprestor/test-fullstack-aviasales/actions/workflows/frontend.yml)
 
 ## Тестовое задание Aviasales Marketing ([full-stack](https://aviasales.recruitee.com/o/fullstack-developer))

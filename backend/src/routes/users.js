@@ -2,6 +2,10 @@
 
 export default (app) => {
   app
+    .get('/', {}, async (req, reply) => {
+      return { hello: 'world' };
+    })
+
     .get('/users', {}, async (req, reply) => {
       const users = await app.objection.models.user.query();
       return users;

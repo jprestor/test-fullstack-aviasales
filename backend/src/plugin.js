@@ -1,6 +1,7 @@
 // @ts-check
 import fastifySensible from '@fastify/sensible';
 import fastifyObjectionjs from 'fastify-objectionjs';
+import fastifyCors from '@fastify/cors';
 
 // @ts-ignore
 import addRoutes from './routes/index.js';
@@ -15,11 +16,10 @@ const registerPlugins = async (app) => {
     knexConfig: knexConfig[mode],
     models,
   });
+  await app.register(fastifyCors);
 };
 
-export const options = {
-  exposeHeadRoutes: false,
-};
+export const options = {};
 
 // eslint-disable-next-line no-unused-vars
 export default async (app, _options) => {

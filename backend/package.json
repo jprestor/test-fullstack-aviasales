@@ -9,7 +9,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "test": "jest --verbose --runInBand",
-    "start": "fastify start src/plugin.js -l debug -P -o"
+    "start": "fastify start src/plugin.js -l debug -P -o --watch --verbose-watch --ignore-watch='node_modules .git .sqlite'"
   },
   "jest": {
     "modulePathIgnorePatterns": [
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/hexlet-boilerplates/fastify-nodejs-application.git#readme",
   "dependencies": {
+    "@fastify/cors": "^8.2.0",
     "@fastify/sensible": "^5.1.0",
     "fastify": "^4.10.2",
     "fastify-cli": "^5.1.0",
