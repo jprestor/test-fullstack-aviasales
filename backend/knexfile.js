@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const migrations = {
-  directory: path.join(__dirname, 'server', 'migrations'),
+  directory: path.join(__dirname, 'src', 'migrations'),
 };
 
 export const development = {
