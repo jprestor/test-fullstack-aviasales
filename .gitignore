@@ -26,4 +26,6 @@ dist/
 tmp/
 temp/
 database.sqlite
+.vercel
+
 
