@@ -6,7 +6,7 @@ dotenv.config();
 const app = Fastify({ logger: true });
 
 // Register your application as a normal plugin.
-app.register(import('./app.js'));
+app.register(import('../src/app.js'));
 
 export default async (req, res) => {
   await app.ready();
