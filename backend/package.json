@@ -10,7 +10,7 @@
     "prebuild": "rm -rf dist",
     "test": "jest --verbose --runInBand",
     "start": "fastify start src/app.js -l debug -P -o --watch --verbose-watch --ignore-watch='node_modules .git .sqlite'",
-    "local:start": "fastify start src/app.js -l debug -P -o --watch --verbose-watch --ignore-watch='node_modules .git .sqlite'"
+    "local:start": "fastify start -l info src/app.js"
   },
   "jest": {
     "modulePathIgnorePatterns": [
