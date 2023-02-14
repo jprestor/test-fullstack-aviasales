@@ -11,12 +11,13 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    working-directory: ./backend
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend
 
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +27,7 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-          working-directory: ./frontend
+          cache-dependency-path: ./some/path/package-lock.json
 
       # - run: make setup
       # - run: make lint
