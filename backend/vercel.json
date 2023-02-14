@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "./src/plugin.js"
+      "destination": "./src/vercel.js"
     }
   ]
 }
