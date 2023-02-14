@@ -40,8 +40,8 @@ const FormContacts = () => {
 
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
-      const res = await api.post('/user/check', data);
-      const isUserExist = res.data;
+      const res = await api.post('/users/check', data);
+      const isUserExist = res.data === 1;
       if (isUserExist) {
         setError('email', {
           type: 'exist',

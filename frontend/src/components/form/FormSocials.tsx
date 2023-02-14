@@ -33,7 +33,7 @@ const FormSocials = () => {
 
   const onSubmit: SubmitHandler<IFormValues> = async () => {
     try {
-      await api.post('/user/create', { email });
+      await api.post('/users/create', { email });
       redirect('/success');
     } catch (error) {
       console.log('unexpected error: ', error);
