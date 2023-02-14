@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-          cache-dependency-path: ./some/path/package-lock.json
+          cache-dependency-path: ./backend/package-lock.json
 
       # - run: make setup
       # - run: make lint
