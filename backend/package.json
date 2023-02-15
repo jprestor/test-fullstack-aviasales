@@ -7,10 +7,10 @@
     "node": ">=16.x"
   },
   "scripts": {
-    "prebuild": "rm -rf dist",
-    "test": "jest --verbose --runInBand",
-    "start": "fastify start src/app.js -l debug -P -o --watch --verbose-watch --ignore-watch='node_modules .git .sqlite'",
-    "local:start": "fastify start -l info src/app.js"
+    "dev": "tsx watch src .env | pino-pretty --colorize",
+    "build": "tsc -p tsconfig.json  -w",
+    "start": "node build",
+    "test": "jest --verbose --runInBand"
   },
   "jest": {
     "modulePathIgnorePatterns": [
@@ -34,20 +34,20 @@
     "@fastify/cors": "^8.2.0",
     "@fastify/sensible": "^5.1.0",
     "fastify": "^4.10.2",
-    "fastify-cli": "^5.1.0",
-    "fastify-objectionjs": "^2.0.0",
+    "fastify-objectionjs": "^2.0.1",
     "knex": "^2.4.0",
     "lodash": "^4.17.21",
     "objection": "^3.0.1",
     "objection-unique": "^1.2.2",
     "pg": "^8.9.0",
     "qs": "^6.11.0",
-    "sqlite3": "^5.0.11"
+    "sqlite3": "^5.0.11",
+    "tsx": "^3.12.3"
   },
   "devDependencies": {
     "@jest/globals": "^28.1.3",
     "@types/jest": "^28.1.7",
-    "@types/node": "^18.7.11",
+    "@types/node": "^18.13.0",
     "dotenv": "^16.0.1",
     "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -55,6 +55,7 @@
     "eslint-plugin-jest": "^26.8.7",
     "jest": "^28.1.3",
     "jest-cli": "^28.1.3",
-    "pino-pretty": "^9.0.1"
+    "pino-pretty": "^9.0.1",
+    "typescript": "^4.9.5"
   }
 }

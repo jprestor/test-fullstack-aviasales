@@ -1,28 +1,26 @@
-// @ts-check
+import { FastifyInstance } from 'fastify';
 import fastifySensible from '@fastify/sensible';
 import fastifyObjectionjs from 'fastify-objectionjs';
 import fastifyCors from '@fastify/cors';
 
-// @ts-ignore
 import addRoutes from './routes/index.js';
 import * as knexConfig from '../knexfile.js';
 import models from './models/index.js';
 
 const mode = process.env.NODE_ENV || 'development';
 
-const registerPlugins = async (app) => {
+const registerPlugins = async (app: FastifyInstance) => {
   await app.register(fastifySensible);
   await app.register(fastifyObjectionjs, {
-    knexConfig: knexConfig[mode],
+    knexConfig: knexConfig[mode as keyof Object],
     models,
-  });
+  } as any);
   await app.register(fastifyCors);
 };
 
 export const options = {};
 
-// eslint-disable-next-line no-unused-vars
-export default async (app, _options) => {
+export default async (app: FastifyInstance, _options: Object) => {
   await registerPlugins(app);
   addRoutes(app);
 

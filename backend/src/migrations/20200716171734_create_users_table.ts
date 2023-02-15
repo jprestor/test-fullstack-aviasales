@@ -1,6 +1,6 @@
-// @ts-check
+import { Knex } from 'knex';
 
-export const up = (knex) =>
+export const up = (knex: Knex) =>
   knex.schema.createTable('users', (table) => {
     table.increments('id').primary();
     table.string('email');
@@ -8,4 +8,4 @@ export const up = (knex) =>
     table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
 
-export const down = (knex) => knex.schema.dropTable('users');
+export const down = (knex: Knex) => knex.schema.dropTable('users');
