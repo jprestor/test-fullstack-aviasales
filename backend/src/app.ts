@@ -18,8 +18,6 @@ const registerPlugins = async (app: FastifyInstance) => {
   await app.register(fastifyCors);
 };
 
-export const options = {};
-
 export default async (app: FastifyInstance, _options: Object) => {
   await registerPlugins(app);
   addRoutes(app);
