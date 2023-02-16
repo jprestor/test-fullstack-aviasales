@@ -8,7 +8,7 @@ interface IButton {
   className?: string;
   type?: 'submit' | 'button';
   to?: string;
-  onClick?: () => {};
+  onClick?: () => void;
 }
 
 const Button: React.FC<IButton> = ({

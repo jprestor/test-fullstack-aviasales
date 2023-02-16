@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import api from '@/src/api';
@@ -63,7 +63,7 @@ const FormSocials = () => {
         </FieldSocialShare>
 
         <FieldSocialShare
-          className="-8px_-5px_20px_rgba(0,119,255,0.46),0_4px_5px_rgba(0,12,35,.5)"
+          className="shadow-[-8px_-5px_20px_rgba(0,119,255,0.46),0_4px_5px_rgba(0,12,35,.5)]"
           href="https://vk.com/share.php?url=aviasales.ru"
           onClick={onShareLinkClick}
         >
@@ -87,7 +87,7 @@ const FormSocials = () => {
         </FieldSocialShare>
       </div>
 
-      {(errors.shared || errors.root?.serverError) && (
+      {(errors.shared ?? errors.root?.serverError) && (
         <div className="relative">
           <div className="absolute top-[10px] text-[9px] text-[#FC1E1F]">
             {errors.shared?.message}

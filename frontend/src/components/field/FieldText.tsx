@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import cn from 'classnames';
 
 interface IFieldValues {
@@ -18,7 +17,7 @@ const FieldText: React.FC<IFieldValues> = ({
   return (
     <label className={cn('block', className)}>
       <input
-        className="w-full px-[13px] min-h-[50px] text-[14px] tracking-wide color-white border-gradient-success2 rounded-[6px]"
+        className="color-white border-gradient-success2 min-h-[50px] w-full rounded-[6px] px-[13px] text-[14px] tracking-wide"
         placeholder={placeholder}
         {...register(name)}
       />

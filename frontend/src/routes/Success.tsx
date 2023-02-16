@@ -3,7 +3,7 @@ import { Button } from '@/ui';
 const Success = () => {
   return (
     <>
-      <h1 className="mb-[35px] text-[40px] text-white font-bold uppercase leading-[58px]">
+      <h1 className="mb-[35px] text-[40px] font-bold uppercase leading-[58px] text-white">
         класс! теперь ты
         <br />
         <span className="text-gradient">участвуешь в конкурсе</span>
@@ -14,7 +14,7 @@ const Success = () => {
         по-настоящему, для этого переходи по ссылке!
       </p>
 
-      <Button className="max-w-[277px] w-full" to="/">
+      <Button className="w-full max-w-[277px]" to="/">
         Пройти игру заново
       </Button>
     </>

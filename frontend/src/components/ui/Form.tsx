@@ -21,8 +21,8 @@ const Form: React.FC<IForm> = ({
   return (
     <form
       className={cn(
-        'pt-[16px] pb-[21px] px-[13px] max-w-[280px] w-full border-gradient shadow-[0_0_90px_rgba(0,255,209,0.2)] rounded-[16px]',
-        disabled && 'opacity-60 pointer-events-none',
+        'border-gradient w-full max-w-[280px] rounded-[16px] px-[13px] pt-[16px] pb-[21px] shadow-[0_0_90px_rgba(0,255,209,0.2)]',
+        disabled && 'pointer-events-none opacity-60',
         className
       )}
       style={{
@@ -30,10 +30,10 @@ const Form: React.FC<IForm> = ({
       }}
       onSubmit={onSubmit}
     >
-      <p className="flex items-center mb-[10px] text-[14px] font-bold">
+      <p className="mb-[10px] flex items-center text-[14px] font-bold">
         <span
           className={cn(
-            'flex-none flex justify-center items-center mr-[10px] w-[22px] h-[20px] rounded-[4px] text-10px bg-[rgba(255,255,255,0.4)]'
+            'text-10px mr-[10px] flex h-[20px] w-[22px] flex-none items-center justify-center rounded-[4px] bg-[rgba(255,255,255,0.4)]'
           )}
           style={{
             backdropFilter: 'blur(3.5px)',

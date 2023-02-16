@@ -20,6 +20,7 @@ const FieldSocialShare: React.FC<IFieldValues> = ({
       href={href}
       onClick={onClick}
       target="_blank"
+      rel="noreferrer"
     >
       {children}
     </a>

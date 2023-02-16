@@ -1,12 +1,13 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  type ThunkAction,
+  type Action,
+} from '@reduxjs/toolkit';
 
 import formReducer from './form/formSlice';
 
-export function makeStore() {
-  return configureStore({
-    reducer: { form: formReducer },
-  });
-}
+export const makeStore = () =>
+  configureStore({ reducer: { form: formReducer } });
 
 const store = makeStore();
 
