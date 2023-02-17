@@ -29,10 +29,9 @@
       "@/ui": ["*", "src/components/ui"],
       "@/widgets": ["*", "src/components/widgets"],
       "@/forms": ["*", "src/components/forms"],
-      "@/field": ["*", "src/components/field"],
+      "@/fields": ["*", "src/components/fields"],
       "@/public/*": ["*", "./public"]
     }
   },
-  "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx"]
 }

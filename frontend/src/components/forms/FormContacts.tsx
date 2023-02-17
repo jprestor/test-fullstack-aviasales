@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { isAxiosError } from 'axios';
 import api from '@/src/api';
 
-import { FieldText } from '@/field';
+import { FieldText } from '@/fields';
 import { Button, Form } from '@/ui';
 import { nextStep, setUserEmail } from '@/store/form/formSlice';
 import { useAppSelector, useAppDispatch } from '@/hooks';
@@ -41,7 +41,7 @@ const FormContacts = () => {
   const onSubmit: SubmitHandler<IFormValues> = async (data) => {
     try {
       const res = await api.post('/users/check', data);
-      const isUserExist = res.data === 1;
+      const isUserExist = res.data.isExist;
       if (isUserExist) {
         setError('email', {
           type: 'exist',

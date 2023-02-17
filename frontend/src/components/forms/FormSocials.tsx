@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import api from '@/src/api';
 
-import { FieldSocialShare } from '@/field';
+import { FieldSocialShare } from '@/fields';
 import { Button, Form } from '@/ui';
 import { useAppSelector } from '@/hooks';
 

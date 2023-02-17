@@ -1,4 +1,4 @@
-import { FormContacts, FormSocials } from '@/components/form';
+import { FormContacts, FormSocials } from '@/forms';
 
 const Home = () => {
   return (
