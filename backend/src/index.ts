@@ -4,7 +4,7 @@ import Fastify from 'fastify';
 
 const server = Fastify({ logger: true });
 
-server.register(import('../src/app.js'));
+server.register(import('../src/app'));
 
 server.listen({ port: Number(process.env.PORT) || 3000 }, (err, address) => {
   if (err) {

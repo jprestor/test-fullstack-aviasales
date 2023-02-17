@@ -20,7 +20,7 @@ export default (app: FastifyInstance) => {
         const user = await models.user
           .query()
           .findOne({ email: req.body.email });
-        return user ? 1 : 0;
+        return { isExist: user ? true : false };
       }
     )
 

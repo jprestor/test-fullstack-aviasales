@@ -1,6 +1,6 @@
 // @ts-ignore
 import objectionUnique from 'objection-unique';
-import BaseModel from './BaseModel.js';
+import BaseModel from './BaseModel';
 
 const unique = objectionUnique({ fields: ['email'] });
 

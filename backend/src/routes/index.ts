@@ -1,5 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import users from './users.js';
+import users from './users';
 
 const controllers = [users];
 

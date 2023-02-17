@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "target": "ES2022",
+    "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -11,5 +11,4 @@
     "skipLibCheck": true
   },
   "include": ["./src/**/*.ts", "./__tests__/**/*.ts", "knexfile.ts"]
-  // "exclude": ["node_modules"]
 }
