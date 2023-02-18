@@ -31,5 +31,5 @@
     "@typescript-eslint/no-confusing-void-expression": "off",
     "tailwindcss/no-custom-classname": "off"
   },
-  "ignorePatterns": ["node_modules", "dist", "public"]
+  "ignorePatterns": ["node_modules", "dist", "public", "vite.config.ts"]
 }
