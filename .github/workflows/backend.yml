@@ -29,6 +29,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: ./backend/package-lock.json
 
-      # - run: make setup
-      # - run: make lint
-      # - run: make test
+      - run: make setup
+      - run: make lint
+      - run: make test
