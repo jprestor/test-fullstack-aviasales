@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+// eslint-disable-next-line
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const migrations = {

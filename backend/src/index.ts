@@ -1,12 +1,14 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
 import Fastify from 'fastify';
+
+dotenv.config();
 
 const server = Fastify({ logger: true });
 
-server.register(import('../src/app'));
+server.register(import('./app'));
 
-server.listen({ port: Number(process.env.PORT) || 3000 }, (err, address) => {
+const port = parseInt(process.env.PORT as string, 10) || 3000;
+server.listen({ port }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);

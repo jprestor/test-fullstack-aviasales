@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error
 import objectionUnique from 'objection-unique';
 import BaseModel from './BaseModel';
 

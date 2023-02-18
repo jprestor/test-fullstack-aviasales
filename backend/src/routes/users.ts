@@ -1,4 +1,4 @@
-import { FastifyInstance } from 'fastify';
+import { type FastifyInstance } from 'fastify';
 
 export default (app: FastifyInstance) => {
   app
@@ -20,7 +20,7 @@ export default (app: FastifyInstance) => {
         const user = await models.user
           .query()
           .findOne({ email: req.body.email });
-        return { isExist: user ? true : false };
+        return { isExist: user !== undefined };
       }
     )
 
