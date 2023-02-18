@@ -11,7 +11,7 @@ import { FormContacts } from '@/forms';
 expect.extend(matchers);
 
 describe('FormContacts', () => {
-  it('fails with wrong email format', async () => {
+  it('show error with wrong email format', async () => {
     const store = makeStore();
 
     const { container } = render(
