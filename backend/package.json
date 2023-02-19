@@ -12,9 +12,10 @@
   "scripts": {
     "dev": "tsx watch ./src .env | pino-pretty --colorize",
     "build": "tsc -p tsconfig.json",
-    "start": "node ./dist/src",
+    "start": "node --experimental-specifier-resolution=node ./dist/src",
     "lint": "eslint ./src",
-    "test": "jest --verbose --runInBand"
+    "test": "jest --verbose --runInBand",
+    "knex:migrate:latest": "NODE_OPTIONS='--loader ts-node/esm' knex migrate:latest"
   },
   "dependencies": {
     "@fastify/cors": "^8.2.0",
@@ -44,6 +45,7 @@
     "jest": "^29.4.3",
     "jest-cli": "^29.4.3",
     "pino-pretty": "^9.0.1",
+    "ts-node": "^10.9.1",
     "ts-jest": "^29.0.5",
     "tsx": "^3.12.3",
     "typescript": "^4.9.5"
