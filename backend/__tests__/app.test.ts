@@ -1,7 +1,7 @@
-import { describe, beforeAll, it, expect } from '@jest/globals';
+import { describe, beforeAll, afterEach, afterAll, it, expect } from 'vitest';
 import fastify, { type FastifyInstance } from 'fastify';
 
-import init from '../src/app';
+import init from '../src/app.js';
 
 describe('requests', () => {
   let app: FastifyInstance;

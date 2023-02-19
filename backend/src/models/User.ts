@@ -1,6 +1,6 @@
 // @ts-expect-error
 import objectionUnique from 'objection-unique';
-import BaseModel from './BaseModel';
+import BaseModel from './BaseModel.js';
 
 const unique = objectionUnique({ fields: ['email'] });
 

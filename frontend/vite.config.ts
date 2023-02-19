@@ -9,6 +9,6 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths(), eslint()],
   test: {
     environment: 'jsdom',
-    exclude: [...configDefaults.exclude, 'shared/*'],
+    exclude: [...configDefaults.exclude],
   },
 });

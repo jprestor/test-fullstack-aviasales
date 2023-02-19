@@ -1,6 +1,4 @@
-import type { Knex } from 'knex';
-
-export const up = (knex: Knex) =>
+export const up = (knex) =>
   knex.schema.createTable('users', (table) => {
     table.increments('id').primary();
     table.string('email');
@@ -8,4 +6,4 @@ export const up = (knex: Knex) =>
     table.timestamp('updated_at').defaultTo(knex.fn.now());
   });
 
-export const down = (knex: Knex) => knex.schema.dropTable('users');
+export const down = (knex) => knex.schema.dropTable('users');

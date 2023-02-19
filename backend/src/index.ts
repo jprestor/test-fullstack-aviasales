@@ -5,7 +5,7 @@ dotenv.config();
 
 const server = Fastify({ logger: true });
 
-server.register(import('./app'));
+server.register(import('./app.js'));
 
 const port = parseInt(process.env.PORT as string, 10) || 3000;
 server.listen({ port }, (err, address) => {

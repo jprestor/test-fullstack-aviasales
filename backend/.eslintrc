@@ -6,29 +6,17 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
-  "extends": [
-    "standard-with-typescript",
-    "airbnb-base",
-    "plugin:jest/recommended",
-    "plugin:prettier/recommended",
-    "plugin:import/typescript"
-  ],
+  "extends": ["standard-with-typescript", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "no-console": 0,
-    "import/extensions": 0,
-    "no-param-reassign": [
-      "error",
-      { "props": true, "ignorePropertyModificationsFor": ["req", "reply"] }
-    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/ban-types": 0,
     "@typescript-eslint/ban-ts-comment": 0,
-    "no-unused-vars": 0,
     "@typescript-eslint/no-floating-promises": 0,
     "@typescript-eslint/strict-boolean-expressions": 0,
     "@typescript-eslint/class-literal-property-style": 0,
-    "@typescript-eslint/no-confusing-void-expression": "off"
+    "@typescript-eslint/no-confusing-void-expression": 0
   },
   "ignorePatterns": ["node_modules", "dist", "db", "server/migrations", "api"]
 }
