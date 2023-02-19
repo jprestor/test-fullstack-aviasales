@@ -3,11 +3,11 @@ import { useForm, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { isAxiosError } from 'axios';
-import api from '@/src/api';
+import toast from 'react-hot-toast';
 
 import { FieldText } from '@/fields';
 import { Button, Form } from '@/ui';
-import { nextStep, setUserEmail } from '@/store/form/formSlice';
+import { setStep, setUserEmail, checkUser } from '@/store/form/formSlice';
 import { useAppSelector, useAppDispatch } from '@/hooks';
 
 interface IFormValues {
@@ -16,7 +16,7 @@ interface IFormValues {
 
 const FormContacts = () => {
   const dispatch = useAppDispatch();
-  const step = useAppSelector((state) => state.form.step);
+  const { step, status } = useAppSelector((state) => state.form);
 
   const {
     register,
@@ -38,24 +38,27 @@ const FormContacts = () => {
     mode: 'onChange',
   });
 
-  const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+  const onSubmit: SubmitHandler<IFormValues> = async ({ email }) => {
     try {
-      const res = await api.post('/users/check', data);
-      const isUserExist = res.data.isExist;
+      const isUserExist = await dispatch(checkUser(email)).unwrap();
       if (isUserExist) {
         setError('email', {
           type: 'exist',
           message: 'Почта уже зарегистрирована',
         });
       } else {
-        dispatch(setUserEmail(data.email));
-        dispatch(nextStep());
+        dispatch(setUserEmail(email));
+        dispatch(setStep(2));
+        toast.success('Отлично! Теперь поделись с друзьями');
       }
     } catch (error) {
       if (isAxiosError(error)) {
         reset();
       } else {
         console.log('unexpected error: ', error);
+        setError('root.serverError', {
+          message: 'Что-то пошло не так...',
+        });
       }
     }
   };
@@ -70,24 +73,26 @@ const FormContacts = () => {
     >
       <FieldText name="email" placeholder="Ввести email" register={register} />
 
-      {errors.email && (
+      {(errors.email ?? errors.root?.serverError) && (
         <div className="relative">
           <div
             className={cn(
-              'absolute top-[0.5vh] text-[1.03vh]',
-              errors.email.type === 'exist'
-                ? 'text-[#FC1E1F]'
-                : 'text-white opacity-50'
+              'absolute top-[0.7vh] text-[1.03vh]',
+              errors.email?.type === 'required' ||
+                errors.email?.type === 'email'
+                ? 'text-white opacity-50'
+                : 'text-[#FC1E1F]'
             )}
           >
-            {errors.email.message}
+            {errors.email?.message ?? errors.root?.serverError.message}
           </div>
         </div>
       )}
 
       <Button
-        className="mt-[2.9vh] w-full"
+        className="mt-[3vh] w-full"
         disabled={!isValid || isSubmitting}
+        loading={status === 'loading' && step === 1}
         type="submit"
       >
         Я оставил

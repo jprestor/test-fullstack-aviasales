@@ -2,18 +2,20 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import api from '@/src/api';
+import toast from 'react-hot-toast';
 
 import { FieldSocialShare } from '@/fields';
 import { Button, Form } from '@/ui';
-import { useAppSelector } from '@/hooks';
+import { setStep, createUser } from '@/store/form/formSlice';
+import { useAppSelector, useAppDispatch } from '@/hooks';
 
 interface IFormValues {
   shared: boolean;
 }
 
 const FormSocials = () => {
-  const { step, email } = useAppSelector((state) => state.form);
+  const dispatch = useAppDispatch();
+  const { step, email, status } = useAppSelector((state) => state.form);
   const navigate = useNavigate();
 
   const {
@@ -32,9 +34,13 @@ const FormSocials = () => {
     ),
   });
 
+  console.log('step', step);
+
   const onSubmit: SubmitHandler<IFormValues> = async () => {
     try {
-      await api.post('/users/create', { email });
+      await dispatch(createUser(email)).unwrap();
+      dispatch(setStep(1));
+      toast.success('Форма успешно отправлена');
       navigate('/success');
     } catch (error) {
       console.log('unexpected error: ', error);
@@ -113,8 +119,9 @@ const FormSocials = () => {
       )}
 
       <Button
-        className="mt-[2.9vh] w-full"
+        className="mt-[3vh] w-full"
         disabled={isSubmitting}
+        loading={status === 'loading' && step === 2}
         type="submit"
       >
         Я поделился

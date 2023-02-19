@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { Home, Success } from '@/routes';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   return (
@@ -14,6 +15,8 @@ const App = () => {
           <Route path="/success" element={<Success />} />
         </Routes>
       </div>
+
+      <Toaster />
     </div>
   );
 };
