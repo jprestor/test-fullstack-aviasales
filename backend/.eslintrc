@@ -1,6 +1,5 @@
 {
   "env": { "node": true, "jest": true },
-  "root": true,
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
