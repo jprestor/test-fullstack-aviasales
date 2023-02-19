@@ -3,18 +3,18 @@ import { FormContacts, FormSocials } from '@/forms';
 const Home = () => {
   return (
     <>
-      <h1 className="mb-[35px] text-[40px] font-bold uppercase leading-[58px] text-white">
+      <h1 className="mb-[4vh] text-[5vh] font-bold uppercase leading-[140%] text-white">
         все круто! теперь
         <br />
         <span className="text-gradient">выигрывай путешествие</span>
       </h1>
 
-      <p className="mb-[48px] max-w-[444px] text-[20px] font-bold leading-[150%]">
+      <p className="mb-[5.5vh] max-w-[52vh] text-[2.5vh] font-bold leading-[150%]">
         Чтобы участвовать в розыгрыше путешествия, оставь актуальную почту и
         поделись с друзьями
       </p>
 
-      <div className="grid max-w-[584px] grid-cols-2 gap-[24px] sm:grid-cols-1">
+      <div className="flex sm:flex-col">
         <FormContacts />
         <FormSocials />
       </div>

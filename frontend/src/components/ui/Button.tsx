@@ -20,7 +20,7 @@ const Button: React.FC<IButton> = ({
   className,
 }) => {
   const classes = cn(
-    'flex justify-center items-center px-[15px] min-h-[48px] text-[16px] font-black tracking-wide bg-[url(/btn-success.svg)] bg-cover rounded-[12px] hover:bg-[url(/btn-hover.svg)] active:bg-[url(/btn-pressed.svg)] transition',
+    'flex justify-center items-center px-[1.7vh] min-h-[5.5vh] text-[1.8vh] font-black tracking-wide bg-[url(/btn-success.svg)] bg-cover rounded-[1.2vh] hover:bg-[url(/btn-hover.svg)] active:bg-[url(/btn-pressed.svg)] transition',
     disabled && 'opacity-60 pointer-events-none',
     className
   );

@@ -7,7 +7,7 @@
   body {
     color: #fff !important;
     background: #fff !important;
-    font-size: 18px;
+    font-size: 2.05vh;
     line-height: normal;
     font-family: 'Inter', sans-serif;
   }
@@ -28,7 +28,7 @@
     }
 
     .border-gradient {
-      border: 1px solid transparent;
+      border: 0.12vh solid transparent;
       background: linear-gradient(#030c29, #030c29) padding-box,
         linear-gradient(
             154.93deg,
@@ -39,7 +39,7 @@
     }
 
     .border-gradient-success {
-      border: 1px solid transparent;
+      border: 0.12vh solid transparent;
       background: linear-gradient(#030c29, #030c29) padding-box,
         linear-gradient(
             95.89deg,
@@ -50,7 +50,7 @@
     }
 
     .border-gradient-success2 {
-      border: 1px solid transparent;
+      border: 0.12vh solid transparent;
       background: linear-gradient(#051237, #051237) padding-box,
         linear-gradient(
             95.89deg,

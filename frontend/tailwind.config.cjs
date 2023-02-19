@@ -26,9 +26,9 @@ module.exports = {
       addComponents({
         '.container': {
           width: '100%',
-          maxWidth: '994px',
+          maxWidth: '113vh',
           margin: '0 auto',
-          padding: '0 40px',
+          padding: '0 5vh',
           '@screen lg': {
             padding: '0 20px',
           },

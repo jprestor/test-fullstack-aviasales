@@ -17,7 +17,7 @@ const FieldText: React.FC<IFieldValues> = ({
   return (
     <label className={cn('block', className)}>
       <input
-        className="color-white border-gradient-success2 min-h-[50px] w-full rounded-[6px] px-[13px] text-[14px] tracking-wide"
+        className="color-white border-gradient-success2 min-h-[5.7vh] w-full rounded-[0.7vh] px-[1.5vh] text-[1.6vh] tracking-wide placeholder:text-[1.6vh]"
         placeholder={placeholder}
         {...register(name)}
       />

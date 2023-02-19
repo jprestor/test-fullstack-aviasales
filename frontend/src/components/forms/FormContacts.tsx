@@ -66,6 +66,7 @@ const FormContacts = () => {
       num={1}
       disabled={step !== 1}
       onSubmit={handleSubmit(onSubmit)}
+      className="mr-[2.8vh] sm:mr-0 sm:mb-[2.8vh]"
     >
       <FieldText name="email" placeholder="Ввести email" register={register} />
 
@@ -73,7 +74,7 @@ const FormContacts = () => {
         <div className="relative">
           <div
             className={cn(
-              'absolute top-[4px] text-[9px]',
+              'absolute top-[0.5vh] text-[1.03vh]',
               errors.email.type === 'exist'
                 ? 'text-[#FC1E1F]'
                 : 'text-white opacity-50'
@@ -85,7 +86,7 @@ const FormContacts = () => {
       )}
 
       <Button
-        className="mt-[26px] w-full"
+        className="mt-[2.9vh] w-full"
         disabled={!isValid || isSubmitting}
         type="submit"
       >
