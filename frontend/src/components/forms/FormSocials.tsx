@@ -34,8 +34,6 @@ const FormSocials = () => {
     ),
   });
 
-  console.log('step', step);
-
   const onSubmit: SubmitHandler<IFormValues> = async () => {
     try {
       await dispatch(createUser(email)).unwrap();

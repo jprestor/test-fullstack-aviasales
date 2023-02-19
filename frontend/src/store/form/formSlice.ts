@@ -46,16 +46,24 @@ export const formSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    const pendingCase = (state: FormState) => {
+      state.status = 'loading';
+    };
+    const fulfilledCase = (state: FormState) => {
+      state.status = 'idle';
+    };
+    const rejectedCase = (state: FormState) => {
+      state.status = 'failed';
+    };
+
     builder
-      .addCase(checkUser.pending || createUser.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(checkUser.fulfilled || createUser.pending, (state, action) => {
-        state.status = 'idle';
-      })
-      .addCase(checkUser.rejected || createUser.pending, (state, action) => {
-        state.status = 'failed';
-      });
+      .addCase(checkUser.pending, pendingCase)
+      .addCase(checkUser.fulfilled, fulfilledCase)
+      .addCase(checkUser.rejected, rejectedCase)
+
+      .addCase(createUser.pending, pendingCase)
+      .addCase(createUser.fulfilled, fulfilledCase)
+      .addCase(createUser.rejected, rejectedCase);
   },
 });
 
